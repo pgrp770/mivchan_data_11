@@ -12,8 +12,8 @@ message_blueprint = Blueprint('message_bluprint', __name__)
 def post_message():
     message = request.json
     produce_all_messages(message)
-    if any("explosive" in sentence for sentence in message["sentences"]):
-        organize_messages_list(message, "explosive")
+    if any("explos" in sentence for sentence in message["sentences"]):
+        organize_messages_list(message, "explos")
         produce_explosive_messages(message)
     elif any("hostage" in sentence for sentence in message["sentences"]):
         organize_messages_list(message, "hostage")
