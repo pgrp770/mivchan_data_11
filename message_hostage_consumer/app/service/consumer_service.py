@@ -39,7 +39,7 @@ def message_to_user(message):
     return new_user
 
 
-def message_to_sentence(message, user_id, type_sentence=None):
+def message_to_sentence(message, user_id):
     return pipe(
         message["sentences"],
         partial(map, lambda sentence: SuspiciousHostageContent(
@@ -58,4 +58,3 @@ def insert_message_to_postgres_hostages(consumer_message):
     create_device_info(message_to_device_info(message, new_user.id))
 
     create_hostage_sentence(message_to_sentence(message, new_user.id))
-
