@@ -7,7 +7,8 @@ from kafka import KafkaConsumer
 
 load_dotenv(verbose=True)
 
-def consume(topic: str, function: FunctionType ,mode='latest'):
+
+def consume(topic: str, function: FunctionType, mode='latest'):
     consumer = KafkaConsumer(
         topic,
         bootstrap_servers=os.environ['BOOTSTRAP_SERVERS'],
