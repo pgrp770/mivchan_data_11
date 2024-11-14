@@ -9,6 +9,7 @@ hostage_messages_topic = os.environ['HOSTAGE_MESSAGES_TOPIC']
 
 
 def produce_hostage_messages(message):
+
     produce(
         topic=hostage_messages_topic,
         key=message['id'],
