@@ -11,7 +11,11 @@ def organize_messages_list(message, word):
     message["sentences"] = organize_list_by_order_of_priority(message["sentences"], word)
 
 
-if __name__ == '__main__':
-    a = {"df": "a", "sentences": ["a", "b"]}
-    organize_messages_list(a, "b")
-    print(a)
+def filter_messages_to_consumers(message):
+    produce_all_messages(message)
+    if any("explos" in sentence for sentence in message["sentences"]):
+        organize_messages_list(message, "explos")
+        produce_explosive_messages(message)
+    elif any("hostage" in sentence for sentence in message["sentences"]):
+        organize_messages_list(message, "hostage")
+        produce_hostage_messages(message)

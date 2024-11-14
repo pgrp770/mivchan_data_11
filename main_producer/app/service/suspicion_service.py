@@ -26,8 +26,8 @@ def find_most_common_word():
         "".join,
         lambda s: s.replace(".", " "),
         lambda s: s.split(),
-        lambda l: Counter(l).most_common(),
-        lambda l: l[0][0]
+        lambda li: Counter(li).most_common(),
+        lambda li: li[0][0]
 
     )
     return all_sentences
