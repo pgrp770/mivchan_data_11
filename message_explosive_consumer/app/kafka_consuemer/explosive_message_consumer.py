@@ -11,7 +11,7 @@ explosive_messages_topic = os.environ['EXPLOSIVE_MESSAGES_TOPIC']
 
 
 def consume_message_explosive():
-    print("consume message to all messages")
+    print("consume message to explosive messages")
     consume(
         topic=explosive_messages_topic,
         function=insert_message_to_postgres
