@@ -7,12 +7,6 @@ class SuspiciousExplosiveContent(Base):
     __tablename__ = "suspicious_explosive_contents"
     id = Column(Integer, primary_key=True, autoincrement=True)
 
-    ip_address = Column(String)
-    created_at = Column(String)
-
-    device_info_id = Column(Integer, ForeignKey("devices_info.id"))
-
-
-    sentences_id = Column(Integer, ForeignKey("user.id"))
-
+    user_id = Column(Integer, ForeignKey("users.id"))
+    user = relationship("User", back_populates="sentences")
 
