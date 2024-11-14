@@ -6,9 +6,6 @@ from message_explosive_consumer.app.repository.insertion_repository import creat
     create_device_info, create_explosive_sentences
 
 
-
-
-
 def message_to_device_info(message, user_id) -> DeviceInfo:
     new_device = message["device_info"]
     device_to_insert: DeviceInfo = DeviceInfo(
@@ -42,7 +39,7 @@ def message_to_user(message):
     return new_user
 
 
-def message_to_sentence(message, user_id, type_sentence=None):
+def message_to_sentence(message, user_id):
     return pipe(
         message["sentences"],
         partial(map, lambda sentence: SuspiciousExplosiveContent(
@@ -61,4 +58,3 @@ def insert_message_to_postgres(consumer_message):
     create_device_info(message_to_device_info(message, new_user.id))
 
     create_explosive_sentences(message_to_sentence(message, new_user.id))
-

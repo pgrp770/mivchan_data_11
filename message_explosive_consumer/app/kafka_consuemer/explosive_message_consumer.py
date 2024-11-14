@@ -3,7 +3,6 @@ from dotenv import load_dotenv
 import os
 
 from kafka_sttings.consumer import consume
-from message_all_consumer.app.repository.message_repository import create_message
 from message_explosive_consumer.app.service.consumer_service import insert_message_to_postgres
 
 load_dotenv(verbose=True)

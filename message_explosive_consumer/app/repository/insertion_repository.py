@@ -29,13 +29,6 @@ def create_explosive_sentences(new_sentences: List[SuspiciousExplosiveContent]):
         print(f"created new explosive sentences")
 
 
-def create_hostage_sentence(new_sentences: List[SuspiciousHostageContent]):
-    with session_maker() as session:
-        session.query(SuspiciousHostageContent).session.add(new_sentences)
-        session.commit()
-        print(f"created new hostage sentences")
-
-
 def create_user(new_user: User):
     with session_maker() as session:
         session.query(DeviceInfo).session.add(new_user)
