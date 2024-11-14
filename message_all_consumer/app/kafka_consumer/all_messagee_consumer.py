@@ -9,7 +9,7 @@ load_dotenv(verbose=True)
 all_messages_topic = os.environ['ALL_MESSAGES_TOPIC']
 
 
-def consume_members():
+def consume_all_messages():
     print("consume message to all messages")
     consume(
         topic=all_messages_topic,

@@ -34,4 +34,4 @@ def find_most_common_word():
 
 
 if __name__ == '__main__':
-    print(find_most_common_word())
+    print(get_list_of_all_sentences("eevans@example.org"))
