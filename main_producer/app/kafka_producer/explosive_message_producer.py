@@ -12,4 +12,6 @@ def produce_explosive_messages(message):
     produce(
         topic=explosive_messages_topic,
         key=message['id'],
-        value=message)
+        value=message
+    )
+    print(f"produce explosive message {message['id']}")

@@ -12,4 +12,6 @@ def produce_all_messages(message):
     produce(
         topic=all_messages_topic,
         key=message['id'],
-        value=message)
+        value=message
+    )
+    print(f"produce all hostage message {message['id']}")
