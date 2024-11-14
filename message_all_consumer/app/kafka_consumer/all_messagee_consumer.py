@@ -10,8 +10,8 @@ all_messages_topic = os.environ['ALL_MESSAGES_TOPIC']
 
 
 def consume_members():
+    print("consume message to all messages")
     consume(
         topic=all_messages_topic,
         function=create_message
     )
-    print("consume message to all messages")
