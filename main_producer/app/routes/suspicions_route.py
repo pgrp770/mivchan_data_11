@@ -1,12 +1,6 @@
-from collections import Counter
+from flask import Blueprint, jsonify
 
-from flask import Blueprint, request, jsonify
-
-from main_producer.app.kafka_producer.all_message_producer import produce_all_messages
-from main_producer.app.kafka_producer.explosive_message_producer import produce_explosive_messages
-from main_producer.app.kafka_producer.hostage_message_producer import produce_hostage_messages
-from main_producer.app.service.producers_service import organize_messages_list
-from main_producer.app.service.suspicion_service import get_list_of_all_sentences
+from main_producer.app.service.suspicion_service import get_list_of_all_sentences, find_most_common_word
 
 suspicions_blueprint = Blueprint('suspicions_bluprint', __name__)
 
@@ -16,5 +10,8 @@ def get_suspicions_message_by_email(email):
     sentences = get_list_of_all_sentences(email)
     return jsonify({"sentences": sentences}), 200
 
-if __name__ == '__main__':
-    words_rank = Counter(['word1', 'word2']).most_common()
+
+@suspicions_blueprint.route('/most_common_word', methods=['GET'])
+def get_most_common_word():
+    sentences = find_most_common_word()
+    return jsonify({"most_common_word": sentences}), 200

@@ -16,11 +16,11 @@ def get_list_of_all_sentences(email):
     )
 
 
-def count_most_common_word():
+def find_most_common_word():
     sentences_hostage = get_all_sentences_hostage()
     sentences_explosive = get_all_sentences_explosive()
     all_sentences = pipe(
-        sentences_explosive + sentences_explosive,
+        sentences_explosive + sentences_hostage,
         partial(map, lambda s: s.sentence),
         list,
         "".join,
@@ -34,4 +34,4 @@ def count_most_common_word():
 
 
 if __name__ == '__main__':
-    print(count_most_common_word())
+    print(find_most_common_word())
