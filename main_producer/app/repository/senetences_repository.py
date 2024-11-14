@@ -22,3 +22,11 @@ def get_sentences_explosive_by_email(email):
         return sentences
 
 
+def get_all_sentences_explosive():
+    with session_maker() as session:
+        return session.query(SuspiciousExplosiveContent).all()
+
+
+def get_all_sentences_hostage():
+    with session_maker() as session:
+        return session.query(SuspiciousHostageContent).all()

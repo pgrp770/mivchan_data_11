@@ -1,3 +1,5 @@
+from collections import Counter
+
 from flask import Blueprint, request, jsonify
 
 from main_producer.app.kafka_producer.all_message_producer import produce_all_messages
@@ -13,3 +15,6 @@ suspicions_blueprint = Blueprint('suspicions_bluprint', __name__)
 def get_suspicions_message_by_email(email):
     sentences = get_list_of_all_sentences(email)
     return jsonify({"sentences": sentences}), 200
+
+if __name__ == '__main__':
+    words_rank = Counter(['word1', 'word2']).most_common()
