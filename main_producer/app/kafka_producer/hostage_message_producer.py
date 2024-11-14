@@ -14,4 +14,4 @@ def produce_hostage_messages(message):
         key=message['id'],
         value=message
     )
-    print(f"produce hostage message {message['id']}")
+    print(f"produce hostage message {message['id']}{message['sentences']}")

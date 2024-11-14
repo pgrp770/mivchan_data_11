@@ -14,4 +14,4 @@ def produce_all_messages(message):
         key=message['id'],
         value=message
     )
-    print(f"produce all hostage message {message['id']}")
+    print(f"produce all message {message['id']}{message['sentences']}")

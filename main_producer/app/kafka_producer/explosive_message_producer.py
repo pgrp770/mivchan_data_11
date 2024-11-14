@@ -14,4 +14,4 @@ def produce_explosive_messages(message):
         key=message['id'],
         value=message
     )
-    print(f"produce explosive message {message['id']}")
+    print(f"produce explosive message {message['id']}{message['sentences']}")
