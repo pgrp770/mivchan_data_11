@@ -1,7 +1,5 @@
 import json
 import os
-from ensurepip import bootstrap
-from types import FunctionType
 from dotenv import load_dotenv
 from kafka import KafkaConsumer
 
