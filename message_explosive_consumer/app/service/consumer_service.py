@@ -53,7 +53,8 @@ def message_to_sentence(message, user_id, type_sentence=None):
     )
 
 
-def insert_message_to_postgres(message):
+def insert_message_to_postgres(consumer_message):
+    message = consumer_message.value
     new_user = create_user(message_to_user(message))
 
     create_location(message_to_location(message, new_user.id))
@@ -61,28 +62,3 @@ def insert_message_to_postgres(message):
 
     create_explosive_sentences(message_to_sentence(message, new_user.id))
 
-if __name__ == '__main__':
-    aba = {
-        "email": "jeremy37@example.org",
-        "username": "jonesalejandra",
-        "ip_address": "215.67.111.124",
-        "created_at": "2024-10-15T05:29:13.450066",
-        "location": {
-            "latitude": 8.5478895,
-            "longitude": -135.24204,
-            "city": "Port Josephburgh",
-            "country": "PA"
-        },
-        "device_info": {
-            "browser": "Mozilla/5.0",
-            "os": "iOS",
-            "device_id": "c4a3ce0d-4f4f-4bc9-9e94-b135e32cfe81"
-        },
-        "sentences": [
-            "Public quickly spend hear sing.",
-            "Difference nothing environmental shake decide.",
-            "Natural southern what nice."
-        ]
-    }
-
-    insert_message_to_postgres(aba)
